@@ -4,11 +4,11 @@ namespace Library1
 {
     public partial class Engine
     {
-        public void SetPerson(string name, int age)
+        public void SetPerson(Person person)
         {
             SqliteConnection connection = new SqliteConnection("Data Source=people.db");
             connection.Open();
-            string sql = "INSERT INTO person (name, age) VALUES ('" + name + "', " + age + ")";
+            string sql = "INSERT INTO person (name, age) VALUES ('" + person.name + "', " + person.age + ")";
             SqliteCommand command = new SqliteCommand(sql, connection);
             command.ExecuteNonQuery();
             connection.Close();
